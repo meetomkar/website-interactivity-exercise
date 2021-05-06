@@ -18,13 +18,30 @@
         <button id="my-btn">Go!</button>
     </div>
     <div>
-        <h2>Selected Stock: <span id="my-stock-display">TODO</span></h2>
+        <h2>Selected Stock:
+            <span id="my-stock-display">TODO</span>
+        </h2>
     </div>
     <script type="text/javascript">
         console.log("Hello this is a review...")
         // todo: respond to button clicks by:
         // ... 1) logging the selected stock symbol and the user name values to the console
         // ... 2) overwriting the heading placeholder with the selected stock symbol
+
+        var myButton = document.getElementById("my-btn")
+        var inputUsername = document.getElementById("my-user-name")
+        var StockSelector = document.getElementById("my-stock-selector")
+        var StockDisplay = document.getElementById("my-stock-display")
+        
+        function handleClick(){
+        console.log("YOU CLICKED ME!")
+        console.log("USERNAME:",inputUsername.value)
+        console.log("STOCK SYMBOL:",StockSelector.value)
+        StockDisplay.innerText = StockSelector.value
+        }
+        //handleClick()
+        myButton.addEventListener("click",handleClick,false)
+
     </script>
 </body>
 </html>
