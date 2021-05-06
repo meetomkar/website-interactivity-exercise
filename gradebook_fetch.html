@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradebook Data Challenge</title>
+</head>
+<body>
+
+    <h1>Gradebook Data Challenge</h1>
+
+    <p>Check out the JavaScript console for some data crunching action...</p>
+
+    <div id="gradebook-app">
+    </div>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script type="text/javascript">
+
+    var requestUrl = "https://raw.githubusercontent.com/prof-rossetti/internet-technologies/main/exercises/fetch-the-data/gradebook.json"
+    console.log("REQUEST URL", requestUrl)        fetch(requestUrl)
+        .then(response => response.json())
+        .then(gradebook => {
+            console.log("GRADEBOOK", gradebook)
+            console.log("DOWNLOAD DATE:", gradebook["downloadDate"])
+            console.log("NUMBER OF STUDENTS:", gradebook["students"].length)
+            // etc...
+        
+        }).catch(function(err){
+            console.error("OOPS", err)
+               alert("OOPS, please check your inputs and try again!")
+        })
+            
+        console.log("THIS WILL BE LOGGED BEFORE THE DATA IS FETCHED")
+
+        console.log("GRADEBOOK", gradebook)
+
+        console.log(gradebook["downloadDate"])
+
+        console.log(gradebook["students"].length)
+
+        var grades = []
+        var GradeSum = 0
+        gradebook["students"].forEach(function(item) {
+            grades.push(item["finalGrade"])
+            GradeSum += item["finalGrade"]
+        })
+
+        console.log("GRADE: ", grades)
+        console.log("AVERAGE GRADE: ", GradeSum/grades.length)
+
+        console.log("MEAN: ",d3.mean(grades))
+        console.log("MEDIAN: ",d3.median(grades))
+
+
+    </script>
+</body>
+</html>
