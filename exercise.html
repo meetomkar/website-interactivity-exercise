@@ -187,6 +187,24 @@
 
         console.log("Thanks for the page visit!")
 
+
+        //
+        // BUTTON
+        //
+
+        var clickMeButton = document.getElementById("click-me")
+        //var clickCountSpan = document.getElementById("click-count")
+        var clickCount = 0
+
+        function handleClick() {
+        console.log("---------------------")
+        console.log("YOU CLICKED ME!")
+        clickCount += 1
+        console.log("CLICK COUNT:", clickCount)
+        //clickCountSpan.textContent = clickCount
+        }
+
+        clickMeButton.addEventListener("click", handleClick)
     </script>
   </body>
 </html>
